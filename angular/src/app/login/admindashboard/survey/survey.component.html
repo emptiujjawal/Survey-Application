@@ -1,0 +1,221 @@
+<!--<div class="d-flex justify-content-between m-3">
+        <h2>Add Survey</h2>
+    
+        <button mat-button [routerLink] ="['admin_component']" (click)="onClose()">
+            <mat-icon>close</mat-icon>
+        </button>
+     </div>
+     
+     <div style="overflow: auto; height: 450px;">
+        <form #form="ngForm"  (submit)="onSubmit(form)" style=" width: 700px;" autocomplete="off" >
+    
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Survey Name:</span>
+                </div>
+                <input required minlength="2" type="text" class="form-control"
+                name="surveyname"
+                
+                #surveyname ="ngModel"
+                [(ngModel)]="survey.surveyname"
+                [ngModelOptions]="{standalone: true}"
+                >
+            </div>
+    
+            <div class="m-3 input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Survey Description:</span>
+                </div>
+                <input required type="text"  class="form-control"
+                
+                name="surveydescription"
+                #surveydescription ="ngModel"
+                [(ngModel)]="survey.surveydescription"
+                [ngModelOptions]="{standalone: true}"
+                >
+            </div>
+            <div class="m-3 input-group">
+                    <mat-form-field appearance="fill">
+                            <mat-label>Enter a date range</mat-label>
+                            <mat-date-range-input [rangePicker]="picker" required>
+                              <input matStartDate placeholder="Start date" name="surveystart"
+                              #surveystart="ngModel" [(ngModel)]="survey.surveystart" [ngModelOptions]="{standalone: true}">
+                              <input matEndDate placeholder="End date" name="surveyend"
+                              #surveyend="ngModel" [(ngModel)]="survey.surveyend" [ngModelOptions]="{standalone: true}">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-date-range-picker #picker></mat-date-range-picker>
+                          </mat-form-field>
+            </div>  
+
+            
+    
+            <div class="text-center ">
+                
+                Questions
+            </div>
+            <div class="text-left text-danger"
+                *ngIf ="surveyname.invalid && surveyname.touched">
+                Please enter Survey name.
+            </div>
+
+           
+
+            <div class="text-center">
+                <button class="m-3 " mat-icon-button
+                    color="warn" type="button" (click)="addQuestion()"
+                    >
+                    <mat-icon>add_circle_outline</mat-icon>
+                        
+                </button>
+            </div>
+    
+            <div class="text-center">
+                <button class="m-3 rounded" mat-raised-button
+                    color="warn" type="submit"
+                    [disabled] = "form.invalid">
+                        Add Survey
+                </button>
+            </div>
+            
+    
+        </form>
+     </div>-->
+     <div class="container-fluid">
+        <div class="text-right"><button mat-button [routerLink] ="['admin_component']" (click)="onClose()">
+                    <mat-icon>close</mat-icon>   
+       </button></div>
+        <form  [formGroup]="addmore" #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <div class="card">
+        
+          <div class="card-header" ><div class="text-center">Add Survey</div>
+         </div>
+          <div class="card-body">
+      
+     <mat-dialog-content class="mat-typography">
+      
+              <div class="row">
+                <div class="col-sm-4">
+                     <mat-form-field appearance="outline">
+                        <mat-label>Survey Name</mat-label>
+                        <input matInput  required
+                        [(ngModel)]="surveyques.surveyname" formControlName="surveyname">
+                        <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                          <span>Please Enter Valid Number</span>
+                        </mat-error> -->
+                      </mat-form-field>
+                </div>
+                <!--<div class="col-sm-3">
+                   <mat-form-field appearance="outline">
+                            <mat-label>type</mat-label>
+                            <mat-select formControlName="type">
+                              <mat-option value="">
+                                None
+                              </mat-option>
+                               <mat-option value="1">
+                                Plan
+                              </mat-option>
+                              <mat-option value="1">
+                                Rutine
+                              </mat-option>
+                              <mat-option value="1">
+                                R&D
+                              </mat-option>
+                             // <!-- <mat-option *ngFor="let parentPOSDepartment of parentPOSDepartment"
+                                [value]="parentPOSDepartment.id">
+                                {{parentPOSDepartment.text}}
+                              </mat-option> //
+                            </mat-select>
+                          </mat-form-field>
+                </div>-->
+                <div class="col-sm-4">
+                     <mat-form-field appearance="outline">
+                        <mat-label>descripition</mat-label>
+                        <textarea matInput required [(ngModel)]="surveyques.surveydescription" formControlName="surveydescripition"></textarea>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-sm-4">
+                        <mat-form-field appearance="outline">
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [rangePicker]="picker" required>
+                                  <input matStartDate placeholder="Start date" name="surveystart"
+                                  #surveystart="ngModel" [(ngModel)]="surveyques.surveystart" [ngModelOptions]="{standalone: true}">
+                                  <input matEndDate placeholder="End date" name="surveyend"
+                                  #surveyend="ngModel" [(ngModel)]="surveyques.surveyend" [ngModelOptions]="{standalone: true}">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+                              </mat-form-field>
+                </div>
+
+                <!-- <div class="col-sm-1">
+                  <button mat-mini-fab color="primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div> -->
+              </div>
+              <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+                      <div class="row wrapper">
+                        <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                          <table class="table" style="overflow: auto">
+                            <thead>
+                              <tr>
+                                <th style="white-space: nowrap;padding-right: 4em;float:center"><span class="required-field"></span>Question </th>
+                                <th style="white-space: nowrap;padding-right: 4em;float:center">Question Type </th>
+                                <th style="white-space: nowrap;padding-right: 4em;float:center">Options </th>
+                                <th style="white-space: nowrap;padding-right: 4em;float:center">Suggestion</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              
+                              <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+      
+                                <td style="white-space: nowrap;"> <textarea required id="question{{i}}"  formControlName="question" class="form-control"></textarea></td>
+                               <!-- [(ngModel)]="surveyques.question" [(ngModel)]="surveyques.answers"  [(ngModel)]="surveyques.questiontype"
+                                <td style="white-space: nowrap;"> <input readonly id="learn{{i}}" formControlName="learn" class="form-control"></td> -->
+                                <!-- <td> <input formControlName="bf_stock" readonly id="bfStock{{i}}" class="form-control reset"></td> -->
+                                 <td><!-- <textarea id="learn{{i}}" formControlName="learn" class="form-control reset"></textarea>-->
+                                     <mat-form-field  appearance="outline">
+                                        <mat-label>type</mat-label>
+                                        <mat-select  id="questiontype{{i}}" (selectionChange)="onSelectionChanged($event, i)" formControlName="questiontype">
+                                          <mat-option value="">
+                                            None
+                                          </mat-option>
+                                           <mat-option  value="InputTextType" >
+                                            InputTextType
+                                          </mat-option>
+                                          <mat-option   value="RadioButton">
+                                            RadioButton
+                                          </mat-option>
+                                          <mat-option  value="DropDown">
+                                            DropDown
+                                          </mat-option>
+                                          <mat-option  value="TextArea" >
+                                                TextArea
+                                            </mat-option>
+                                        </mat-select>
+                                      </mat-form-field></td>
+                                <td> <textarea id="answers{{i}}" required  formControlName="answers" placeholder="Options should be distinguish by ," class="form-control reset"></textarea></td>
+                                <td> <textarea formControlName="suggestion" class="form-control reset"></textarea></td>
+                                <td> <button mat-icon-button *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><mat-icon>delete_outline</mat-icon></button></td>
+                              </tr>
+                            
+                            </tbody>
+                            <tfoot>
+                              <tr><td> <button mat-icon-button color="warn" type="button" (click)="addNewRow()" class="btn"><mat-icon>add_circle_outline</mat-icon></button></td></tr>
+                            </tfoot>
+                          </table>
+                      </div>
+      
+                    </div>
+                    <!-- </form> -->
+                </mat-dialog-content>
+          </div>
+          <div class="card-footer">
+             <button mat-raised-button color="primary" type="submit" [disabled] = "form.invalid">Submit</button>
+          </div>
+        </div>
+      </form>
+      
+      </div>
+    
+

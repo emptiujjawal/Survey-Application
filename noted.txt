@@ -1,0 +1,24 @@
+admin credentials -
+		 username: admin@wipro.com
+		 password: wipro@123
+
+db-
+	credential-table- id,name, email, password, 		interest,dedication,date, usertype
+
+	survery-table- id, survey name, survey description, survey
+	start date, end date, datesurverymade
+
+	question-tables- id, survey name, question, input, option1, 		option2, option3, option4, date
+
+	submission-tables- id, useremail,surveyname, question, 		answer, submissiondate/time	
+
+ui-
+	1) Login page
+	2) Registeration Page
+	3)Admin dashboard
+	4)User Dashboard
+	5)Survey Dashboard
+	6) Submission Dashboard
+	7) Admin Survey Dashboard
+	8) Add questions/modify the survey
+	9) download the data in excel sheet survey

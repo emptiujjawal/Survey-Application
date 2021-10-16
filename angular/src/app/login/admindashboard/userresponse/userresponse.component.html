@@ -1,0 +1,62 @@
+<div class="container ">
+        <div class="d-flex justify-content-center">
+          <h1><u> Campaign Registration Management System </u></h1>    
+        </div>
+        <div class="d-flex justify-content-center">
+                <h2><u> User Responses </u></h2>    
+        </div>
+              
+        
+        
+    <div ><p class="text-md-right"><button mat-stroked-button [routerLink] ="['chart_component']"  (click)=AddSurvey()>Pie Chart View</button>
+        <button mat-stroked-button  (click)=createPdf()>Download As PDF</button>
+        <button mat-stroked-button  (click)=exportasExcel()>Download As Excel</button></p>
+      <div style="overflow:auto;" id="htmlData" >
+                <div class="mat-elevation-z8" #TABLE>
+                    
+                    <mat-table id="basic-table" #table [dataSource] = "listData" class="mat-table" matSort>
+                        <mat-header-row *matHeaderRowDef= "displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+            
+                        <ng-container matColumnDef="id" >
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Survey_ID</mat-header-cell>
+                                <mat-cell *matCellDef="let element"  (click)="showList(element.id)">
+                                    {{element.id}}
+                                </mat-cell>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="surveyname">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Survey Name</mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                     {{element.surveyname}}
+                                </mat-cell>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="submissiondate">
+                            <mat-header-cell *matHeaderCellDef>Submission Date</mat-header-cell>
+                                 <mat-cell *matCellDef="let element">
+                                     {{element.submissiondate}}
+                            </mat-cell>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="emailid">
+                            <mat-header-cell *matHeaderCellDef>Email Id</mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                     {{element.emailid}}
+                            </mat-cell>
+                        </ng-container>
+            
+                        <ng-container matColumnDef="edit">
+                            <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+                            <mat-cell *matCellDef="let row">
+                                <button mat-icon-button  (click)="onEdit(row)">
+                                    <mat-icon>launch</mat-icon>
+                                </button>
+                            </mat-cell>
+                        </ng-container>
+            
+                       
+            
+                    </mat-table>
+                </div>
+             </div> 

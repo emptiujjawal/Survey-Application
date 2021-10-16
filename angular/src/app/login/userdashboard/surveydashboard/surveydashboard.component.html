@@ -1,0 +1,148 @@
+<!--<p>surveydashboard works!</p>-->
+<div class="container-fluid">
+    <div class="text-right"><button mat-button [routerLink] ="['user_component']" (click)="onClose()">
+                <mat-icon>close</mat-icon>   
+   </button></div>
+    <form  [formGroup]="addmore" #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class="card">
+    
+      <div class="card-header" ><div class="text-center">{{policyservice.formDataSurveyQues.surveyname}}</div>
+     </div>
+      <div class="card-body">
+  
+ <mat-dialog-content class="mat-typography">
+  
+          <div class="row">
+            
+            </div>
+
+          <div *ngFor="let form_elem of formTemplate">
+            <div [ngSwitch]="form_elem.input">
+              <div *ngSwitchCase="'InputTextType'">
+               <div style="font-weight: normal; font-size: 14px;">
+                 {{form_elem.id}}. {{form_elem.question}} </div><br>
+                 <mat-form-field appearance="outline">
+                    <mat-label>Question {{form_elem.id}}</mat-label>
+                   <input matInput type="text" required class="form-control" formControlName="{{form_elem.id}}" />
+                </mat-form-field>
+                <br>
+              </div>
+              <div *ngSwitchCase="'TextArea'">
+                  <div style="font-weight: normal; font-size: 14px;">
+                      {{form_elem.id}}. {{form_elem.question}} </div><br>
+                 <mat-form-field appearance="outline">
+                    <mat-label>Question {{form_elem.id}}</mat-label>
+                      <textarea matInput required class="form-control" type="text" formControlName="{{form_elem.id}}"></textarea>
+                </mat-form-field>
+                      <br>
+              </div>
+              <div *ngSwitchCase="'RadioButton'">
+                  <div style="font-weight: normal; font-size: 14px;">
+                      {{form_elem.id}}. {{form_elem.question}} </div><br>
+                   <!-- <mat-form-field appearance="outline">
+                        <mat-label>Question {{form_elem.id}}</mat-label>-->
+                        <mat-radio-group  formControlName="{{form_elem.id}}">
+                            <mat-radio-button *ngIf="form_elem.option1.length > 0" class="form-control" value="{{form_elem.option1}}">{{form_elem.option1}}</mat-radio-button>
+                            <mat-radio-button *ngIf="form_elem.option2.length > 0" class="form-control" value="{{form_elem.option2}}">{{form_elem.option2}}</mat-radio-button>
+                            <mat-radio-button *ngIf="form_elem.option3.length > 0" class="form-control" value="{{form_elem.option3}}">{{form_elem.option3}}</mat-radio-button>
+                            <mat-radio-button *ngIf="form_elem.option4.length > 0" class="form-control" value="{{form_elem.option4}}">{{form_elem.option4}}</mat-radio-button>
+                          
+                          </mat-radio-group>
+                   <!-- </mat-form-field>-->
+                          <br>
+              </div>
+              <div *ngSwitchCase="'DropDown'">
+                  <div style="font-weight: normal; font-size: 14px;">
+                      {{form_elem.id}}. {{form_elem.question}} </div><br>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Question {{form_elem.id}}</mat-label>
+                    <mat-select required formControlName="{{form_elem.id}}">
+                        <mat-option *ngIf="form_elem.option1.length > 0" value="{{form_elem.option1}}">
+                            {{form_elem.option1}}
+                        </mat-option>
+                        <mat-option *ngIf="form_elem.option2.length > 0"  value="{{form_elem.option2}}">
+                            {{form_elem.option2}}
+                        </mat-option>
+                        <mat-option *ngIf="form_elem.option3.length > 0" value="{{form_elem.option3}}">
+                            {{form_elem.option3}}
+                        </mat-option>
+                        <mat-option *ngIf="form_elem.option4.length > 0" value="{{form_elem.option4}}">
+                            {{form_elem.option4}}
+                          </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+              </div>
+            </div>  
+            </div>
+          
+
+          <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+  <!--Remove Here  <div class="row wrapper">
+                    <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                      <table class="table" style="overflow: auto">
+                        <thead>
+                          <tr>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center"><span class="required-field"></span>Question </th>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center">Question Type </th>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center">Options </th>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center">Suggestion</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+  
+                            <td style="white-space: nowrap;"> <textarea required id="question{{i}}"   formControlName="question" class="form-control"></textarea></td>
+                           <!-- [(ngModel)]="surveyques.question" [(ngModel)]="surveyques.answers" 
+                            [(ngModel)]="policyservice.formDataSurveyQues.question1"
+                            [(ngModel)]="surveyques.questiontype"
+                            <td style="white-space: nowrap;"> <input readonly id="learn{{i}}" formControlName="learn" class="form-control"></td> -->
+                            <!-- <td> <input formControlName="bf_stock" readonly id="bfStock{{i}}" class="form-control reset"></td> -->
+ <!-- Remove here                            <td><!-- <textarea id="learn{{i}}" formControlName="learn" class="form-control reset"></textarea>-->
+  <!--- Remove Here                               <mat-form-field  appearance="outline">
+                                    <mat-label>type</mat-label>
+                                    <mat-select  id="questiontype{{i}}" (selectionChange)="onSelectionChanged($event, i)" formControlName="questiontype">
+                                      <mat-option value="">
+                                        None
+                                      </mat-option>
+                                       <mat-option value="InputTextType">
+                                        InputTextType
+                                      </mat-option>
+                                      <mat-option value="RadioButton">
+                                        RadioButton
+                                      </mat-option>
+                                      <mat-option value="CheckBox">
+                                        CheckBox
+                                      </mat-option>
+                                      <mat-option value="TextArea">
+                                            TextArea
+                                        </mat-option>
+                                    </mat-select>
+                                  </mat-form-field></td>
+                            <td> <textarea id="answers{{i}}" required  formControlName="answers" placeholder="Options should be distinguish by ," class="form-control reset"></textarea></td>
+                            <td> <textarea formControlName="suggestion" class="form-control reset"></textarea></td>
+                            <td> <button mat-icon-button *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger"><mat-icon>delete_outline</mat-icon></button></td>
+                          </tr>
+                        
+                        </tbody>
+                        <tfoot>
+                          <tr><td> <button mat-icon-button color="warn" type="button" (click)="addNewRow()" class="btn"><mat-icon>add_circle_outline</mat-icon></button></td></tr>
+                        </tfoot>
+                      </table>
+                  </div>
+  
+                </div> ///////row wrapper-->
+                <!-- </form> -->
+            </mat-dialog-content>
+      </div>
+      <div class="card-footer">
+         <button mat-raised-button color="primary" type="submit" [disabled] = "form.invalid">Submit</button>
+      </div>
+    </div>
+  </form>
+  
+  </div>
+
+
+

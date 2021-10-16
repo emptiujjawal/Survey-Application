@@ -1,0 +1,45 @@
+
+<div class="container-fluid">
+        <div class="text-right"><button mat-button [routerLink] ="['userresponse_component']" (click)="onClose()">
+                    <mat-icon>close</mat-icon>   
+       </button></div>
+    
+      
+    
+            <div class="card">
+                    <div class="card-header" ><div class="text-center">{{this.policyservice.formDataSubmission.surveyname}} Submitted Details</div>
+                   </div>
+                    <div class="card-body">
+                            <mat-dialog-content class="mat-typography">
+    
+                                    <div *ngIf="c1 >0" style="font-weight: normal; font-size: 14px;">
+                                        Question 1. {{this.policyservice.formDataSubmission.question1}} <br>
+                                      answer: {{this.policyservice.formDataSubmission.answer1}} </div><br>
+
+                                    <div *ngIf="c2 >0" style="font-weight: normal; font-size: 14px;">
+                                       Question 2. {{this.policyservice.formDataSubmission.question2}} <br> 
+                                        answer: {{this.policyservice.formDataSubmission.answer2}} </div><br> 
+
+                                    <div *ngIf="c3 >0" style="font-weight: normal; font-size: 14px;">
+                                      Question 3. {{this.policyservice.formDataSubmission.question3}} <br>
+                                        answer: {{this.policyservice.formDataSubmission.answer3}} </div><br>
+
+                                    <div *ngIf="c4 >0" style="font-weight: normal; font-size: 14px;">
+                                   Question 4. {{this.policyservice.formDataSubmission.question4}} <br> 
+                                        answer: {{this.policyservice.formDataSubmission.answer4}} </div><br>  
+
+                                    <div *ngIf="c5 >0" style="font-weight: normal; font-size: 14px;">
+                                  Question 5. {{this.policyservice.formDataSubmission.question5}} <br> 
+                                        answer: {{this.policyservice.formDataSubmission.answer5}} </div><br>               
+                                                
+                                     <!--   *ngIf="this.policyservice.formDataSubmission.question5.length > 0"-->
+    
+                
+                            </mat-dialog-content>
+                    </div>
+                    
+                    </div>
+    
+      
+    
+    </div>

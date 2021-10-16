@@ -1,0 +1,98 @@
+<div class="container ">
+        <div class="d-flex justify-content-center">
+          <h1><u> Campaign Registration Management System </u></h1>    
+        </div>
+        
+        
+        
+        <div class="d-flex justify-content-center" style="overflow: auto; margin-top: 40px;">
+          <!--<form #form="ngForm" (submit)="onSubmit(form)" style="width: 700px; height: 100%;" autocomplete="off">-->
+            <form   #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+              <div class="mt-4 input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">Your Name:</span>
+                  </div>
+                  <input required minlength="2" type="text" class="form-control"
+                  name="username"
+                  #username="ngModel"
+                  [(ngModel)]="users.username"
+                  >
+              </div>
+        
+              <div class="mt-4 input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">Email ID:</span>
+                  </div>
+                  <input required minlength="2" type="email" class="form-control"
+                  name="emailid"
+                  #emailid="ngModel"
+                  [(ngModel)]="users.emailid"
+                 >
+              </div>
+
+              <div class="mt-4 input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Password:</span>
+                    </div>
+                    <input required minlength="2" type="password" class="form-control"
+                    name="password"
+                    #password="ngModel"
+                    [(ngModel)]="users.password"
+                   >
+                </div>
+                
+              
+
+              <div class="mt-2 input-group">
+                    <mat-form-field style="width: 100%;" >
+                        <mat-label style="padding: 8px; color: #333333">Reason for interest in JFS Program?</mat-label>
+                        <mat-select required style="width: 100%;" type="text" class="form-control"
+                            name="interest"
+                            #interest="ngModel"
+                            [(ngModel)]="users.interest"
+                        > 
+    
+                        <mat-option  *ngFor = "let dl of listItems" [value]="dl">
+                            {{dl}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class=" input-group">
+                        <mat-form-field style="width: 100%;" >
+                        <mat-label style="padding: 8px; color: #333333">How many hours in a week are you ready to dedicate for this learning?</mat-label>
+                            <mat-select required style="width: 100%;" type="text" class="form-control"
+                            name="dedication"
+                            #dedication="ngModel"
+                            [(ngModel)]="users.dedication"
+                            > 
+        
+                            <mat-option  *ngFor = "let dedic of DedicationList" [value]="dedic">
+                                {{dedic}}
+                            </mat-option>   
+                            </mat-select>
+                         </mat-form-field>
+                    </div>
+                      
+                    
+        
+              <div class="text-center">
+                  <button class="mt-4 rounded" mat-raised-button
+                      style="background-color: yellow; font-weight: bold" type="submit"
+                      [disabled] = "form.invalid"  >
+                          Registration
+                  </button>
+              </div>
+              
+        
+          </form>
+        </div>
+        
+        
+        
+     
+        
+        
+        </div>
+        

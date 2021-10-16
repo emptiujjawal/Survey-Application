@@ -1,0 +1,82 @@
+<div class="container ">
+    <div class="d-flex justify-content-center">
+      <h1><u> Campaign Registration Management System </u></h1>    
+    </div>
+    <div class="d-flex justify-content-center">
+            <h2><u> Active Surveys </u></h2>    
+    </div>
+          
+    
+    
+<div ><p class="text-md-right">
+     <button mat-stroked-button [routerLink] ="['']">Log Out</button></p></div>  
+  <div style="overflow:auto;">
+            <div class="mat-elevation-z8">
+                
+                <mat-table [dataSource] = "listData" class="mat-table" matSort>
+                    <mat-header-row *matHeaderRowDef= "displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        
+                    <ng-container matColumnDef="id" >
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Survey_ID</mat-header-cell>
+                            <mat-cell *matCellDef="let element"  (click)="showList(element.id)">
+                                {{element.id}}
+                            </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="surveyname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Survey Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                 {{element.surveyname}}
+                            </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="surveydescription">
+                        <mat-header-cell *matHeaderCellDef>Survey Description</mat-header-cell>
+                             <mat-cell *matCellDef="let element">
+                                 {{element.surveydescription}}
+                        </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="noofques">
+                        <mat-header-cell *matHeaderCellDef>No. Of Question</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                 {{element.noofques}}
+                        </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="surveystart">
+                        <mat-header-cell *matHeaderCellDef>Survey Start</mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                 {{element.surveystart}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="surveyend">
+                            <mat-header-cell *matHeaderCellDef>Survey End</mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                     {{element.surveyend}}
+                            </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="surveymade">
+                            <mat-header-cell *matHeaderCellDef>Survey Made</mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                         {{element.surveymade}}
+                            </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="edit">
+                        <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button mat-icon-button id="edit"
+                             [disabled]="true" (click)="onEdit(row)">
+                                <mat-icon>launch</mat-icon>
+                            </button>
+                        </mat-cell>
+                    </ng-container>
+        
+                    
+                </mat-table>
+            </div>
+         </div> 
