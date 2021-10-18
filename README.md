@@ -3,12 +3,7 @@ Survey Application is used to create a Surveys within the application, collectin
 
 
 # Screenshots
-<img src="https://user-images.githubusercontent.com/29273383/137600545-60283631-4c22-444c-8faa-6b19bee09767.png"  height="790">
-<img src="" width="400" height="790">
-<img src="" width="400" height="790">
-<img src="" width="400" height="790">
-<img src="" width="400" height="790">
-![First Page]()
+![First Page](https://user-images.githubusercontent.com/29273383/137600545-60283631-4c22-444c-8faa-6b19bee09767.png)
 ![Login_Page](https://user-images.githubusercontent.com/29273383/137600579-73500db3-c4c0-4fc5-addc-458bbe7e441b.png)
 ![Registration_Page](https://user-images.githubusercontent.com/29273383/137600598-9a5c56d6-e3d4-41cd-897a-3e5f1fb8ae5b.png)
 ![Admin_page](https://user-images.githubusercontent.com/29273383/137600616-1709d16e-593d-4a45-8a5d-873b2c25b27a.png)
